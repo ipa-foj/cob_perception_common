@@ -13,6 +13,13 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(OpenCV REQUIRED)
 find_package(TinyXML REQUIRED)
 
+# build with c++11
+add_compile_options(-std=c++11)
+
+# Add custom (non compiling) targets so launch scripts and python files show up in QT Creator's project view.
+file(GLOB_RECURSE EXTRA_FILES */*)
+add_custom_target(${PROJECT_NAME}_OTHER_FILES ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} SOURCES ${EXTRA_FILES})
+
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -55,6 +62,8 @@ include_directories(
 add_library(cob_vision_utils
   common/src/VisionUtils.cpp
   common/src/CameraSensorToolbox.cpp
+  common/src/color_space_converter.cpp
+  common/src/histogram_computer.cpp
 )
 target_link_libraries(cob_vision_utils
   ${OpenCV_LIBS}
