@@ -306,11 +306,11 @@ void ColorSpaceConverter::RGB2rgb(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2rgb conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2rgb conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2rgb conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2rgb conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -347,11 +347,11 @@ void ColorSpaceConverter::RGB2RGBII(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2RGBII conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2RGBII conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2RGBII conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2RGBII conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -384,17 +384,17 @@ void ColorSpaceConverter::RGB2XYZ(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2XYZ conversion has wrong number of channels!");
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2XYZ conversion has wrong number of channels!");
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2XYZ conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2XYZ conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** do the convertion using opencv **********
 	cv::Mat input_clone;
 	input.convertTo(input_clone, CV_32FC3);
-	cv::cvtColor(input_clone, output, CV_RGB2XYZ);
+	cv::cvtColor(input_clone, output, cv::COLOR_RGB2XYZ);
 }
 
 /*
@@ -436,11 +436,11 @@ void ColorSpaceConverter::RGB2XYZII(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2XYZII conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2XYZII conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2XYZII conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2XYZII conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -473,17 +473,17 @@ void ColorSpaceConverter::RGB2HSV(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2HSV conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2HSV conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2HSV conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2HSV conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** do the convertion using opencv **********
 	cv::Mat input_clone;
 	input.convertTo(input_clone, CV_32FC3);
-	cv::cvtColor(input_clone, output, CV_RGB2HSV);
+	cv::cvtColor(input_clone, output, cv::COLOR_RGB2HSV);
 }
 
 /*
@@ -494,17 +494,17 @@ void ColorSpaceConverter::RGB2Lab(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2Lab conversion has wrong number of channels!");
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2Lab conversion has wrong number of channels!");
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2Lab conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2Lab conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** do the convertion using opencv **********
 	cv::Mat input_clone;
 	input.convertTo(input_clone, CV_32FC3);
-	cv::cvtColor(input_clone, output, CV_RGB2Lab);
+	cv::cvtColor(input_clone, output, cv::COLOR_RGB2Lab);
 }
 
 /*
@@ -515,11 +515,11 @@ void ColorSpaceConverter::RGB2Opponent(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2Opponent conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2Opponent conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2Opponent conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2Opponent conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -555,11 +555,11 @@ void ColorSpaceConverter::RGB2I3(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2I3 conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2I3 conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2I3 conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2I3 conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -594,11 +594,11 @@ void ColorSpaceConverter::RGB2C3(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2C3 conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2C3 conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2C3 conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2C3 conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -634,11 +634,11 @@ void ColorSpaceConverter::RGB2LSLM(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2LSLM conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2LSLM conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2LSLM conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2LSLM conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -671,18 +671,18 @@ void ColorSpaceConverter::RGB2Luv(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2Lab conversion has wrong number of channels!");
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2Lab conversion has wrong number of channels!");
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2Lab conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2Lab conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** do the convertion using opencv **********
 	cv::Mat input_clone;
 	input.convertTo(input_clone, CV_32FC3);
 	input_clone *= 1.0/255.0; // the input image in CV_32FC3 format is assumed to be in [0, 1]
-	cv::cvtColor(input_clone, output, CV_RGB2Luv);
+	cv::cvtColor(input_clone, output, cv::COLOR_RGB2Luv);
 }
 
 /*
@@ -693,11 +693,11 @@ void ColorSpaceConverter::RGB2l3(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2l3 conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2l3 conversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2l3 conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2l3 conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********
@@ -736,11 +736,11 @@ void ColorSpaceConverter::RGB2ZRG(const cv::Mat& input, cv::Mat& output)
 	// ********** make sure the input image has the correct number of channels and the right format **********
 	if(input.channels()!=3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2ZRGconversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2ZRGconversion has wrong number of channels! Expected 3, got " + std::to_string(input.channels()));
 	}
 	else if(input.type()!=CV_8UC3)
 	{
-		CV_Error(CV_StsBadArg, "Input image for RGB2ZRG conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
+		CV_Error(cv::Error::StsBadArg, "Input image for RGB2ZRG conversion has wrong type! Expected 16, got " + std::to_string(input.type()));
 	}
 
 	// ********** resize the output to the correct format **********

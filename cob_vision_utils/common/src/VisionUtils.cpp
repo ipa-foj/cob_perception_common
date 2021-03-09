@@ -953,7 +953,7 @@ cv::Mat ipa_Utils::GetColorcoded(const cv::Mat& img_32F, double min, double max)
     }
 
     if (hsv)
-        cv::cvtColor(hsvImage, hsvImage, CV_HSV2BGR);
+        cv::cvtColor(hsvImage, hsvImage, cv::COLOR_HSV2BGR);
 
     return hsvImage;
 }

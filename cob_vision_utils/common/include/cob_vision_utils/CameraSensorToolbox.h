@@ -27,6 +27,7 @@
 #endif
 
 #include <opencv2/core/core.hpp>
+#include <opencv2/core/types_c.h>
 #include <map>
 #include <boost/shared_ptr.hpp>
 

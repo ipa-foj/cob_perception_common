@@ -25,6 +25,7 @@
 #endif
 
 #include <opencv2/core/core.hpp>
+#include <opencv2/core/core_c.h>
 #include <iostream>
 
 namespace ipa_Utils {
